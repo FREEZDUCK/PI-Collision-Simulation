@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://du0e4fqkibrid"]
+
+[ext_resource type="Script" path="res://assets/src/objects/hit_particle.gd" id="1_rl2kl"]
+
+[sub_resource type="Curve" id="Curve_hncln"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.653333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qn1co"]
+curve = SubResource("Curve_hncln")
+
+[sub_resource type="Curve" id="Curve_c16ur"]
+max_value = 5.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.38, 3.24176), 0.0, 0.0, 0, 0, Vector2(1, 0.593407), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x0032"]
+curve = SubResource("Curve_c16ur")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r17rj"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+radial_velocity_min = 3.0
+radial_velocity_max = 3.0
+radial_velocity_curve = SubResource("CurveTexture_x0032")
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 0.470588, 1)
+alpha_curve = SubResource("CurveTexture_qn1co")
+
+[node name="hit_particle" type="GPUParticles2D"]
+z_index = 4
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_r17rj")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+fixed_fps = 60
+script = ExtResource("1_rl2kl")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

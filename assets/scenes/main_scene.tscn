@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://djlrc274i4m0"]
+
+[ext_resource type="PackedScene" uid="uid://ctoj6q5xcw5yy" path="res://assets/objects/block.tscn" id="1_8htby"]
+[ext_resource type="Script" path="res://assets/src/main_scene.gd" id="1_i2bin"]
+[ext_resource type="FontFile" uid="uid://ss8x33ijo84c" path="res://assets/fonts/gbold.otf" id="3_fmcvx"]
+[ext_resource type="FontFile" uid="uid://dxaidrm2nd5vw" path="res://assets/fonts/gthin.otf" id="4_5rppl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt07q"]
+size = Vector2(478, 281)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iuicq"]
+font = ExtResource("3_fmcvx")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_518f4"]
+font = ExtResource("4_5rppl")
+font_size = 80
+font_color = Color(0.682353, 0.682353, 0.682353, 0.34902)
+
+[node name="main_scene" type="Node2D"]
+script = ExtResource("1_i2bin")
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(-24, -64)
+zoom = Vector2(3, 3)
+
+[node name="floor" type="Node2D" parent="."]
+
+[node name="CR" type="ColorRect" parent="floor"]
+offset_left = -172.0
+offset_right = 228.0
+offset_bottom = 1.0
+
+[node name="wall" type="Area2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="wall"]
+position = Vector2(-410, -139.5)
+shape = SubResource("RectangleShape2D_qt07q")
+
+[node name="CR" type="ColorRect" parent="wall"]
+offset_left = -172.0
+offset_top = -280.0
+offset_right = -171.0
+offset_bottom = 1.0
+
+[node name="deco" type="Node2D" parent="wall"]
+
+[node name="CR2" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -8.0
+offset_right = -171.0
+rotation = 0.698132
+
+[node name="CR3" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -23.0
+offset_right = -171.0
+offset_bottom = -15.0
+rotation = 0.698132
+
+[node name="CR4" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -38.0
+offset_right = -171.0
+offset_bottom = -30.0
+rotation = 0.698132
+
+[node name="CR5" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -53.0
+offset_right = -171.0
+offset_bottom = -45.0
+rotation = 0.698132
+
+[node name="CR6" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -68.0
+offset_right = -171.0
+offset_bottom = -60.0
+rotation = 0.698132
+
+[node name="CR7" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -83.0
+offset_right = -171.0
+offset_bottom = -75.0
+rotation = 0.698132
+
+[node name="CR8" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -98.0
+offset_right = -171.0
+offset_bottom = -90.0
+rotation = 0.698132
+
+[node name="CR9" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -113.0
+offset_right = -171.0
+offset_bottom = -105.0
+rotation = 0.698132
+
+[node name="CR10" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -128.0
+offset_right = -171.0
+offset_bottom = -120.0
+rotation = 0.698132
+
+[node name="CR11" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -143.0
+offset_right = -171.0
+offset_bottom = -135.0
+rotation = 0.698132
+
+[node name="CR12" type="ColorRect" parent="wall/deco"]
+offset_left = -172.0
+offset_top = -158.0
+offset_right = -171.0
+offset_bottom = -150.0
+rotation = 0.698132
+
+[node name="collidee" parent="." instance=ExtResource("1_8htby")]
+position = Vector2(-80, 0)
+velocity = 0.0
+
+[node name="collider" parent="." instance=ExtResource("1_8htby")]
+velocity = -1.0
+fill_color = Color(0.431373, 0.717647, 1, 1)
+
+[node name="hit_count" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -165.0
+offset_right = 2114.0
+offset_bottom = -68.0
+scale = Vector2(0.1, 0.1)
+text = "충돌 횟수ㅣ0회"
+label_settings = SubResource("LabelSettings_iuicq")
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 19.0
+offset_right = 915.0
+offset_bottom = 316.0
+scale = Vector2(0.07, 0.07)
+text = "[esc] 설정으로
+[좌/우 화살표] 배속 조절
+[아래 화살표] 배속 초기화"
+label_settings = SubResource("LabelSettings_518f4")

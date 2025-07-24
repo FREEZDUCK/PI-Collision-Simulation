@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwlpnagj847v6"]
+
+[ext_resource type="AudioStream" uid="uid://bss1utt2ply7i" path="res://assets/sfx/hit.mp3" id="1_6l5pw"]
+[ext_resource type="Script" path="res://assets/src/objects/hit_sound.gd" id="2_jmvvk"]
+
+[node name="hit_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_6l5pw")
+script = ExtResource("2_jmvvk")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
