@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbjl04qgjkajv"]
+[gd_scene load_steps=7 format=3 uid="uid://dbjl04qgjkajv"]
 
 [ext_resource type="Script" path="res://assets/src/set_scene.gd" id="1_djbum"]
 [ext_resource type="FontFile" uid="uid://ss8x33ijo84c" path="res://assets/fonts/gbold.otf" id="1_olbhi"]
@@ -8,6 +8,11 @@
 [sub_resource type="LabelSettings" id="LabelSettings_tajmg"]
 font = ExtResource("1_olbhi")
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4wxw"]
+font = ExtResource("2_btjbm")
+font_size = 50
+font_color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [node name="set_scene" type="Node2D"]
 script = ExtResource("1_djbum")
@@ -44,5 +49,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_hm5h4")
 theme_override_font_sizes/font_size = 40
 text = "완료"
+
+[node name="title2" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 178.0
+offset_right = 1305.0
+offset_bottom = 239.0
+scale = Vector2(0.6, 0.6)
+text = "made by DUCKYOON"
+label_settings = SubResource("LabelSettings_y4wxw")
 
 [connection signal="pressed" from="center/V/V/Button" to="." method="_on_button_pressed"]

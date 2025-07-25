@@ -12,9 +12,7 @@ func _ready():
 	
 	$CR.color = fill_color
 	var scale_of_mass = Vector2.ONE + Vector2(log(mass), log(mass)) * 0.14
-	
 	scale = scale_of_mass
-
 	mass_text.text = format_number_with_commas(mass) + "kg"
 	
 	position.y -= 10 * scale_of_mass.x
